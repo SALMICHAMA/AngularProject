@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ListAnimalService} from '../service/animal.service';
+import {OrganService} from '../service/organ.service';
 
 @Component({
   selector: 'app-listorgans',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListorgansComponent implements OnInit {
 
-  constructor() { }
+  @Input() organname: string;
+  @Input() organdescirption: string;
+  @Input() organisVital: boolean;
+  @Input() index: string;
+  @Input() id: number;
+  organs: any[];
+  columns: string[];
+
+  constructor(private organservice: OrganService) { }
 
   ngOnInit() {
+    this.organs = this.organservice.organs;
+    this.columns = this.organservice.getColumns();
   }
 
 }

@@ -1,1 +1,24 @@
-<p class="listanimal">List animals</p><p class="listorgans">List organs</p>                                                                                                                           <p>listorgans works!</p>
+
+<br>
+<p>List organs</p>
+
+<table class="table table-hover table-dark">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Vital</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let organ of organs; let i = index">
+    <td>{{organ.name}}</td>
+    <td>{{organ.description}}</td>
+    <td>{{organ.vital}}</td>
+
+  </tr>
+
+  </tbody>
+</table>
