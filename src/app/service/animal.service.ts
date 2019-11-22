@@ -23,4 +23,13 @@ export class ListAnimalService {
   getColumns(): string[] {
     return ['name', 'environment', 'groups']}
 
+  getAnimalbyId(id: number) {
+    const animals = this.animals.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    return animals
+      ;
+  }
 }

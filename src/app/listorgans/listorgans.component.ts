@@ -13,7 +13,7 @@ export class ListorgansComponent implements OnInit {
   @Input() organdescirption: string;
   @Input() organisVital: boolean;
   @Input() index: string;
-  @Input() id: number;
+  @Input() ids: number;
   organs: any[];
   columns: string[];
 

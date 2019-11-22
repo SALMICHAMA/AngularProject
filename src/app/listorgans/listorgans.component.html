@@ -2,6 +2,12 @@
 <br>
 <p>List organs</p>
 
+<img id="image" routerLink="" src="https://img.icons8.com/cotton/64/000000/earth-planet--v1.png"><br><br><br>
+
+<label for="site-search">Search an organ:</label>
+<input type="search" id="site-search" name="q"
+       aria-label="Search through site content" >
+<button id="loupe" type="submit" class="icone" ></button>
 <table class="table table-hover table-dark">
   <thead>
   <tr>
@@ -12,12 +18,14 @@
   </tr>
   </thead>
   <tbody>
-
   <tr *ngFor="let organ of organs; let i = index">
     <td>{{organ.name}}</td>
     <td>{{organ.description}}</td>
     <td>{{organ.vital}}</td>
+    <a routerLink = {{organ.id}} >More details</a>
   </tr>
+
+
 
   </tbody>
 </table>

@@ -9,12 +9,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddanimalComponent} from './addanimal/addanimal.component';
 import {RouterModule, Routes} from '@angular/router';
 import {OrganService} from './service/organ.service';
+import { SingleAnimalComponent } from './single-animal/single-animal.component';
+import { SingleOrganComponent } from './single-organ/single-organ.component';
 
 
 const appRoutes: Routes = [
   { path: 'animals', component: AddanimalComponent },
   { path: 'listanimals', component: AnimalstodisplayComponent },
+  {path: 'listanimals/:id', component: SingleAnimalComponent},
   { path: 'listorgans', component: ListorgansComponent },
+  { path: 'listorgans/:id', component: SingleOrganComponent },
   { path: '', component: WelcomeComponent }
   ];
 
@@ -25,7 +29,9 @@ const appRoutes: Routes = [
     WelcomeComponent,
     ListorgansComponent,
     AnimalstodisplayComponent,
-    AddanimalComponent
+    AddanimalComponent,
+    SingleAnimalComponent,
+    SingleOrganComponent
   ],
   imports: [
     BrowserModule,
