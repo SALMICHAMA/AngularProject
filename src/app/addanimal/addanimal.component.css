@@ -1,0 +1,24 @@
+#title{
+  font-size: 4em;
+  text-align: center;
+  color:#6AA84F;
+}
+
+#image{
+  position: absolute; top:2%; right:1%;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 22em;
+}​
+
+#trait{
+  text-align: center;
+  font-weight: bold;
+}
+
+#h5{
+  text-decoration: underline;
+}

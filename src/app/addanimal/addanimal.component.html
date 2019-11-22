@@ -1,0 +1,53 @@
+  <div>
+      <div>
+           <h2 id="title">Add animal</h2>
+      </div>
+    <img id="image" src="https://img.icons8.com/cotton/64/000000/earth-planet--v1.png"><br><br><br>
+
+  <div>
+    <p>
+      <label> Name :
+        <input style="border-color: #6AA84F" type="text" />
+      </label>
+    </p>
+    <p>
+      <label> Environment :
+        <input style="border-color: #6AA84F" type="text"/>
+      </label>
+    </p>
+    <p>
+      <label> Group :
+        <input style="border-color: #6AA84F" type="text"/>
+      </label>
+    </p>
+
+      <label for="nbOrgans">Organs :</label>
+        <select id="nbOrgans" type="number" [(ngModel)]="nbOrgans">
+          <option *ngFor="let nbOrg of ['Select...',1,2,3,4,5,6,7,8,9] index as i" [ngValue]="i">{{i}}</option>
+        </select>
+
+        <div *ngFor="let item of getNbOrgans() index as i">
+        <p id="trait">____________________________________________________________________</p>
+
+        <h5 id="h5">Organ n°{{1+i}}</h5>
+
+        <label> Name :
+        <input style="border-color: #6AA84F" type="text" />
+        </label><br>
+
+        <label> Vitale :
+        <input style="border-color: #6AA84F" type="text"/>
+        </label>
+
+        <label > Content :
+        <textarea type="text" id="content" ></textarea>
+        </label>
+
+
+        </div>
+
+  </div>
+        <button class="btn" class="btn btn-success">Add animal</button>
+
+
+
