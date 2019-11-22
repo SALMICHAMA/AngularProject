@@ -1,0 +1,21 @@
+
+<table class="table table-hover table-dark">
+  <thead>
+  <tr>
+    <th scope="col">Animal</th>
+    <th scope="col">Environment</th>
+    <th scope="col">Groups</th>
+    <th scope="col">Organs</th>
+  </tr>
+  </thead>
+<tbody>
+  <tr
+    *ngFor="let animal of animals; let i = index"
+    [Animalname]="animal.name"
+    [Animalenvironment]="animal.environment"
+    [Animalgroups]="animal.groups"
+    [id]="animal.id"
+    [index]="i">
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,49 @@
+
+h1{
+  color: forestgreen;
+  text-align: center;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 80px;
+}
+.exp{
+  color: forestgreen;
+  text-align: center;
+  font-size: 25px;
+}
+body{
+  background-color: #FFE599;
+}
+
+.btn1{
+  background-color: forestgreen;
+  font-size: 35px;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  margin: 50px 17% 60px 2%;
+  color: white;
+
+
+}
+.btna{
+  background-color: orange;
+  font-size: 35px;
+  text-align: center;
+  width: 30%;
+  margin: 20px 23% 60px 2%;
+  color: white;
+}
+.btnb{
+  background-color: blue;
+  font-size: 35px;
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 35%;
+  color: white;
+}
+#lig{
+
+  text-align: center;
+}
