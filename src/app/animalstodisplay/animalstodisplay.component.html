@@ -1,4 +1,4 @@
-
+<router-outlet></router-outlet>
 <table class="table table-hover table-dark">
   <thead>
   <tr>
@@ -9,8 +9,7 @@
   </tr>
   </thead>
 <tbody>
-  <tr
-    *ngFor="let animal of animals; let i = index">
+  <tr *ngFor="let animal of animals; let i = index">
     <td>{{animal.name}}</td>
     <td>{{animal.environment}}</td>
     <td>{{animal.groups}}</td>
