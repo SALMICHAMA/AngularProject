@@ -14,6 +14,7 @@ import {OrganService} from './service/organ.service';
 const appRoutes: Routes = [
   { path: 'animals', component: AddanimalComponent },
   { path: 'listanimals', component: AnimalstodisplayComponent },
+  { path: 'listorgans', component: ListorgansComponent },
   { path: '', component: WelcomeComponent }
   ];
 
