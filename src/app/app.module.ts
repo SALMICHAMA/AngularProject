@@ -7,6 +7,7 @@ import { ListanimalsComponent } from './listanimals/listanimals.component';
 import { ListorgansComponent } from './listorgans/listorgans.component';
 import { ListAnimalService } from './service/animal.service';
 import { AnimalstodisplayComponent } from './animalstodisplay/animalstodisplay.component';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddanimalComponent} from './addanimal/addanimal.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'listanimals', component: ListanimalsComponent },
   { path: '', component: WelcomeComponent }
   ];
+
 
 @NgModule({
   declarations: [
