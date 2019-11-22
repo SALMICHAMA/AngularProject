@@ -7,10 +7,18 @@ import { ListanimalsComponent } from './listanimals/listanimals.component';
 import { ListorgansComponent } from './listorgans/listorgans.component';
 import { ListAnimalService } from './service/animal.service';
 import { AnimalstodisplayComponent } from './animalstodisplay/animalstodisplay.component';
-import {FormsModule} from '@angular/forms';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddanimalComponent} from './addanimal/addanimal.component';
+import {RouterModule, Routes} from '@angular/router';
 
 
+const appRoutes: Routes = [
+  { path: 'animals', component: AddanimalComponent },
+  { path: 'listanimals', component: AnimalstodisplayComponent },
+  { path: 'listanimals', component: ListanimalsComponent },
+  { path: '', component: WelcomeComponent }
+  ];
 
 
 @NgModule({
@@ -24,7 +32,9 @@ import {AddanimalComponent} from './addanimal/addanimal.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ListAnimalService],
   bootstrap: [AppComponent]
