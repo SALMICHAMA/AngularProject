@@ -10,12 +10,10 @@
   </thead>
 <tbody>
   <tr
-    *ngFor="let animal of animals; let i = index"
-    [Animalname]="animal.name"
-    [Animalenvironment]="animal.environment"
-    [Animalgroups]="animal.groups"
-    [id]="animal.id"
-    [index]="i">
+    *ngFor="let animal of animals; let i = index">
+    <td>{{animal.name}}</td>
+    <td>{{animal.environment}}</td>
+    <td>{{animal.groups}}</td>
   </tr>
   </tbody>
 </table>

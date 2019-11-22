@@ -19,4 +19,8 @@ export class ListAnimalService {
       groups: 'felin',
     }
   ];
+
+  getColumns(): string[] {
+    return ['name', 'environment', 'groups']}
+
 }

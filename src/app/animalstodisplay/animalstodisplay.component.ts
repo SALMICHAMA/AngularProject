@@ -13,11 +13,13 @@ export class AnimalstodisplayComponent implements OnInit {
   @Input() index: string;
   @Input() id: number;
   animals: any[];
+  columns: string[];
 
   constructor(private animalService: ListAnimalService) { }
 
   ngOnInit() {
     this.animals = this.animalService.animals;
+    this.columns = this.animalService.getColumns();
   }
 
 }
