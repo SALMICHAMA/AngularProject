@@ -8,3 +8,7 @@
   background-image: url("https://img.icons8.com/windows/32/000000/google-web-search.png");
   background-repeat: no-repeat;width: 30px;height: 30px;padding: 0;
 }
+
+#image{
+  position: absolute; top:2%; right:1%;
+}
