@@ -64,13 +64,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Webanimals:build"
+            "browserTarget": "Webanimals:build",
+            "proxyConfig":"src/proxy.config.json"
           },
           "configurations": {
             "production": {
               "browserTarget": "Webanimals:build:production"
             }
-          }
+          },
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
