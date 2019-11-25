@@ -4,6 +4,7 @@ import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
 
 import {catchError} from 'rxjs/operators';
+import {AnimalstodisplayComponent} from "../animalstodisplay/animalstodisplay.component";
 
 @Injectable({
   providedIn: 'root'
@@ -51,8 +52,8 @@ httpOptions = {
 
   constructor(private http: HttpClient) { }
 
-  getAnimal(id: string): Observable<Animal> {
-    return this.http.get<Animal>(`${this.baseUrl + '/animals/'}+${id}`);
+  getAnimal(id: string): Observable<AnimalstodisplayComponent> {
+    return this.http.get<AnimalstodisplayComponent>(`${this.baseUrl + '/animals/'}+${id}`);
   }
 
   createAnimal(animal: Animal): Observable<Animal> {

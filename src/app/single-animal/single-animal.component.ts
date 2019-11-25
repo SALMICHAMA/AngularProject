@@ -3,6 +3,7 @@ import {ListAnimalService} from '../service/animal.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrganService} from '../service/organ.service';
 import {Animal} from '../animal';
+import {AnimalstodisplayComponent} from "../animalstodisplay/animalstodisplay.component";
 
 @Component({
   selector: 'app-single-animal',
@@ -12,24 +13,27 @@ import {Animal} from '../animal';
 export class SingleAnimalComponent implements OnInit {
 
   id: string;
-  animal: Animal;
+  animal: AnimalstodisplayComponent;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private animalService: ListAnimalService) {
   }
 
   ngOnInit() {
-    this.animal = new Animal();
-
-    this.id = this.route.snapshot.params.id;
-
-    this.animalService.getAnimal(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.animal = data;
-      }, error => console.log(error));
+    this.reloadData();
   }
-
+  reloadData() {
+    this.animalService.getAnimal(this.id)
+      .subscribe(
+        data => {
+          this.animal = data;
+          console.log(data);
+        },
+        e => console.log(e));
+  }
+  animalDetails(id: string) {
+    this.router.navigate(['/animals/', id]);
+  }
   list() {
     this.router.navigate(['/animals']);
   }
