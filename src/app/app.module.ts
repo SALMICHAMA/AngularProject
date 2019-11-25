@@ -11,12 +11,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {OrganService} from './service/organ.service';
 import { SingleAnimalComponent } from './single-animal/single-animal.component';
 import { SingleOrganComponent } from './single-organ/single-organ.component';
+import {HttpClientModule} from '@angular/common/http';
+import { UpdateanimalComponent } from './updateanimal/updateanimal.component';
 
 
 const appRoutes: Routes = [
-  { path: 'animals', component: AddanimalComponent },
-  { path: 'listanimals', component: AnimalstodisplayComponent },
-  {path: 'listanimals/:id', component: SingleAnimalComponent},
+  { path: 'addanimals', component: AddanimalComponent },
+  { path: 'animals', component: AnimalstodisplayComponent },
+  {path: 'animals/:id', component: SingleAnimalComponent},
   { path: 'listorgans', component: ListorgansComponent },
   { path: 'listorgans/:id', component: SingleOrganComponent },
   { path: '', component: WelcomeComponent }
@@ -31,10 +33,12 @@ const appRoutes: Routes = [
     AnimalstodisplayComponent,
     AddanimalComponent,
     SingleAnimalComponent,
-    SingleOrganComponent
+    SingleOrganComponent,
+    UpdateanimalComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Animal} from '../animal';
+import {ListAnimalService} from '../service/animal.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-addanimal',
@@ -8,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddanimalComponent implements OnInit {
 
   nbOrgans: number;
-
-  constructor() {
+  animals: Animal = new Animal();
+  constructor(private animalService: ListAnimalService , private router: Router) {
     this.nbOrgans = 0;
   }
 
@@ -17,5 +20,20 @@ export class AddanimalComponent implements OnInit {
     return Array(this.nbOrgans);
   }
   ngOnInit() {
+  }
+  newanimal(): void {
+    this.animals = new Animal();
+
+  }
+  save() {
+    this.animalService.createanimal(this.animals)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.animals = new Animal();
+    // this.reloadData();
+    this.gotoList();
+  }
+
+  gotoList() {
+    this.router.navigate(['/animals']);
   }
 }
