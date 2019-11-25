@@ -16,11 +16,11 @@ import { UpdateanimalComponent } from './updateanimal/updateanimal.component';
 
 
 const appRoutes: Routes = [
-  { path: 'addanimals', component: AddanimalComponent },
+  { path: 'animal/add', component: AddanimalComponent },
   { path: 'animals', component: AnimalstodisplayComponent },
   {path: 'animals/:id', component: SingleAnimalComponent},
-  { path: 'listorgans', component: ListorgansComponent },
-  { path: 'listorgans/:id', component: SingleOrganComponent },
+  { path: 'organs', component: ListorgansComponent },
+  { path: 'organs/:id', component: SingleOrganComponent },
   { path: '', component: WelcomeComponent }
   ];
 

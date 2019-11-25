@@ -31,7 +31,7 @@
   <tr *ngFor="let animal of animals">
     <td>{{animal.name}}</td>
     <td>{{animal.environment}}</td>
-    <td>{{animal.groups}}</td>
+    <td>{{animal.category}}</td>
     <a routerLink="/listorgans" (click)="animalDetails(animal.id)" >Show more</a>
   </tr>
 
