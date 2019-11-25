@@ -26,7 +26,7 @@ export class AddanimalComponent implements OnInit {
 
   }
   save() {
-    this.animalService.createanimal(this.animals)
+    this.animalService.createAnimal(this.animals)
       .subscribe(data => console.log(data), error => console.log(error));
     this.animals = new Animal();
     // this.reloadData();

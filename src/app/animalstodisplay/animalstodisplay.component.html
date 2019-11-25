@@ -7,7 +7,7 @@
   <img  id="image" routerLink="" src="https://img.icons8.com/cotton/64/000000/earth-planet--v1.png"><br><br><br>
   </div>
 
-<label for="site-search">Search an animal:</label>
+<label for="site-search" id="researchBar">Search an animal:</label>
 <input type="search" id="site-search" name="q"
        aria-label="Search through site content" >
 <button id="loupe" type="submit" class="icone" ></button>
@@ -17,7 +17,7 @@
 </ul>
 
 <router-outlet></router-outlet>
-<table class="table table-hover table-dark">
+<table class="table table-hover table-dark" id="animalsTable">
   <thead>
   <tr>
     <th scope="col">Animal</th>

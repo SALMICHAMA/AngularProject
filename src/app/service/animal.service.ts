@@ -51,11 +51,11 @@ httpOptions = {
 
   constructor(private http: HttpClient) { }
 
-  getAnimal(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getAnimal(id: string): Observable<Animal> {
+    return this.http.get<Animal>(`${this.baseUrl + '/animals/'}+${id}`);
   }
 
-  createanimal(animal: Animal): Observable<Animal> {
+  createAnimal(animal: Animal): Observable<Animal> {
     return this.http.post <Animal> (`${this.baseUrl + '/animal/add'}`, animal, this.httpOptions).pipe();
   }
 

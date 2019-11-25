@@ -15,7 +15,8 @@ export class SingleAnimalComponent implements OnInit {
   animal: Animal;
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private animalService: ListAnimalService) { }
+              private animalService: ListAnimalService) {
+  }
 
   ngOnInit() {
     this.animal = new Animal();
@@ -32,6 +33,7 @@ export class SingleAnimalComponent implements OnInit {
   list() {
     this.router.navigate(['/animals']);
   }
+
   // name = 'animals';
   // environment = 'environment';
   // groups = 'groups';
@@ -41,7 +43,8 @@ export class SingleAnimalComponent implements OnInit {
   //
   // ngOnInit() {
   //   const id = this.route.snapshot.params.id;
-    // this.name = this.animalService.getAnimalbyId(+id).name;
-    // this.environment = this.animalService.getAnimalbyId(+id).environment;
-    // this.groups = this.animalService.getAnimalbyId(+id).groups;
+  // this.name = this.animalService.getAnimalbyId(+id).name;
+  // this.environment = this.animalService.getAnimalbyId(+id).environment;
+  // this.groups = this.animalService.getAnimalbyId(+id).groups;
 }
+

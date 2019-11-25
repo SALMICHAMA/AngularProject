@@ -41,6 +41,6 @@ reloadData() {
   }
 
   animalDetails(id: string) {
-    this.router.navigate(['/animals', id]);
+    this.router.navigate(['/animals/', id]);
   }
 }
