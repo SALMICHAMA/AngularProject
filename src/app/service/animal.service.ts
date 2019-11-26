@@ -50,7 +50,7 @@ httpOptions = {
    'Content-Type': 'multipart/form-data'})
 };
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'http://localhost:8080/api';
 
 
   constructor(private http: HttpClient) { }
