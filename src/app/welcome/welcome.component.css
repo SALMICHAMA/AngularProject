@@ -15,34 +15,33 @@ body{
   background-color: #FFE599;
 }
 
-.btn1{
+.saa{
   background-color: forestgreen;
   font-size: 35px;
   text-align: center;
-  width: 20%;
-  margin: 50px 17% 60px 2%;
+  display: inline-block;
+  width: 30%;
   color: white;
-
-
+  margin-left: 16%;
 }
-.btna{
+.sao{
   background-color: orange;
   font-size: 35px;
   text-align: center;
+  display: inline-block;
   width: 30%;
-  margin: 20px 23% 60px 2%;
+  margin: 15px 5%;
   color: white;
 }
-.btnb{
+
+.aa{
   background-color: blue;
   font-size: 35px;
   text-align: center;
   display: block;
-  margin: auto;
-  width: 35%;
+  width: 30%;
   color: white;
-}
-#lig{
+  margin-left: 33%;
 
-  text-align: center;
 }
+
