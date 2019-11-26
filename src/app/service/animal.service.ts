@@ -2,9 +2,7 @@ import {Observable, pipe} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
-
-import {catchError} from 'rxjs/operators';
-import {FormGroup} from '@angular/forms';
+import {AnimalstodisplayComponent} from '../animalstodisplay/animalstodisplay.component';
 
 
 @Injectable({
@@ -47,30 +45,27 @@ export class ListAnimalService {
   //   return animals
   //     ;
   // }
-
-// const options = {
-//   headers: new HttpHeaders({
-//     'Content-Type': 'application/json'})
-// };
+httpOptions = {
+  headers: new HttpHeaders({
+   'Content-Type': 'multipart/form-data'})
+};
 
   private baseUrl = 'http://localhost:8080/api';
 
 
   constructor(private http: HttpClient) { }
 
-  getAnimal(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getAnimal(id: string): Observable<AnimalstodisplayComponent> {
+    return this.http.get<AnimalstodisplayComponent>(`${this.baseUrl + '/animals/'}+${id}`);
   }
-
 
   createanimal(animal: Animal): Observable<Animal> {
-   return  this.http.post<Animal>(`${this.baseUrl + '/animal/add'}`, animal).pipe();
+    return this.http.post<Animal>(`${this.baseUrl + '/animal/add'}`, animal).pipe();
   }
 
 
-
-  updateAnimal(id: string, value: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateAnimal(id: string, value: Animal): Observable<Animal> {
+    return this.http.put<Animal>(`${this.baseUrl}/${id}`, value);
   }
 
   deleteAnimal(id: string): Observable<any> {

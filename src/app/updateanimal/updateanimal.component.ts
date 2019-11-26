@@ -16,17 +16,17 @@ export class UpdateanimalComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,
               private animalService: ListAnimalService) { }
 
-  ngOnInit() {
-    this.animal = new Animal();
-
-    this.id = this.route.snapshot.params['id'];
-
-    this.animalService.getAnimal(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.animal = data;
-      }, error => console.log(error));
-  }
+  ngOnInit() {}
+  //   this.animal = new Animal();
+  //
+  //   this.id = this.route.snapshot.params['id'];
+  //
+  //   this.animalService.getAnimal(this.id)
+  //     .subscribe(data => {
+  //       console.log(data)
+  //       this.animal = data;
+  //     }, error => console.log(error));
+  // }
 
   updateAnimal() {
     this.animalService.updateAnimal(this.id, this.animal)

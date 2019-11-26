@@ -3,4 +3,6 @@ export class Animal {
   name: string;
   environment: string;
   category: string;
+  imageUrl: string;
+
 }
