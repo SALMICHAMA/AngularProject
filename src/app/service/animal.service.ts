@@ -1,14 +1,19 @@
-import {Observable} from 'rxjs';
+import {Observable, pipe} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
 
 import {catchError} from 'rxjs/operators';
+import {FormGroup} from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListAnimalService {
+
+
+
   // animals = [
   //   {
   //     id: 1,
@@ -50,15 +55,19 @@ export class ListAnimalService {
 
   private baseUrl = 'http://localhost:8080/api';
 
+
   constructor(private http: HttpClient) { }
 
   getAnimal(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+
   createanimal(animal: Animal): Observable<Animal> {
-    return this.http.post <Animal> (`${this.baseUrl + '/animal/add'}`, animal).pipe();
+   return  this.http.post<Animal>(`${this.baseUrl + '/animal/add'}`, animal).pipe();
   }
+
+
 
   updateAnimal(id: string, value: any): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}`, value);

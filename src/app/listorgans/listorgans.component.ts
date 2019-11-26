@@ -9,11 +9,7 @@ import {OrganService} from '../service/organ.service';
 })
 export class ListorgansComponent implements OnInit {
 
-  @Input() organname: string;
-  @Input() organdescirption: string;
-  @Input() organisVital: boolean;
-  @Input() index: string;
-  @Input() ids: number;
+
   organs: any[];
   columns: string[];
 

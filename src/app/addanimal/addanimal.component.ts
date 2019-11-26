@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Animal} from '../animal';
 import {ListAnimalService} from '../service/animal.service';
 import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-addanimal',
@@ -12,6 +13,7 @@ export class AddanimalComponent implements OnInit {
 
   nbOrgans: number;
   animals: Animal = new Animal();
+  form: FormGroup;
   constructor(private animalService: ListAnimalService , private router: Router) {
     this.nbOrgans = 0;
   }
@@ -25,15 +27,18 @@ export class AddanimalComponent implements OnInit {
     this.animals = new Animal();
 
   }
+
+
   save() {
+    this.animals = new Animal();
     this.animalService.createanimal(this.animals)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.animals = new Animal();
-    // this.reloadData();
-    this.gotoList();
+     this.gotoList();
   }
 
   gotoList() {
     this.router.navigate(['/animals']);
   }
+
+
 }
