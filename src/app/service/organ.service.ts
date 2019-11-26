@@ -42,7 +42,7 @@ export class OrganService {
       'Content-Type': 'multipart/form-data'})
   };
 
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
 
