@@ -30,11 +30,10 @@ export class AddanimalComponent implements OnInit {
 
 
   save() {
-
     this.animals = new Animal();
     this.animalService.createanimal(this.animals)
       .subscribe(data => console.log(data), error => console.log(error));
-     this.gotoList();
+    this.gotoList();
   }
 
   gotoList() {

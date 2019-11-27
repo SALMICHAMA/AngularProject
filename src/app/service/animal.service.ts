@@ -1,8 +1,9 @@
-import {Observable, pipe} from 'rxjs';
+import {Observable, of, pipe, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
 import {AnimalstodisplayComponent} from '../animalstodisplay/animalstodisplay.component';
+import {catchError, tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -47,7 +48,7 @@ export class ListAnimalService {
   // }
 httpOptions = {
   headers: new HttpHeaders({
-   'Content-Type': 'multipart/form-data'})
+    'Content-Type': 'multipart/form-data'})
 };
 
   private baseUrl = 'http://localhost:8080/api';
@@ -68,9 +69,17 @@ httpOptions = {
     return this.http.put<Animal>(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteAnimal(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  }
+/*  deleteAnimal(name: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl + '/animals/' + name} `, { responseType: 'text' });
+  }*/
+
+deleteAnimal(name: string): Observable<Animal> {
+  return this.http.delete<Animal>(this.baseUrl + '/animals/' + name, this.httpOptions).pipe(
+    tap(_ => console.log('Deleted animal with name = ${name}')),
+    catchError(error => of(null))
+  );
+}
+
 
   getAnimalList(): Observable<Animal []> {
     return this.http.get<Animal []>(`${this.baseUrl + '/animals'}`);

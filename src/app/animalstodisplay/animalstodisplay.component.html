@@ -34,6 +34,7 @@
       <td>{{animal.environment}}</td>
       <td>{{animal.category}}</td>
       <a routerLink="/organs/{{animal.name}}">Show more</a>
+      <button class="btn" class="btn btn-success" type="button " (click)="delete(animal.name)">Delete</button>
     </tr>
 
     </tbody>
