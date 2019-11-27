@@ -4,29 +4,40 @@
       </div>
     <img id="image" routerLink="" src="https://img.icons8.com/cotton/64/000000/earth-planet--v1.png"><br><br><br>
 
+<!--      <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">-->
+<!--      <div>-->
+<form  #ngForm="ngForm">
   <div>
 
-    <p>
+
+        <div>
+          <input type="file" name="profile" (change)="uploadFile($event)" />
+        </div>
+
+
+       <p>
+
+
       <label> Name :
-        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.name"  />
+        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.name"  [ngModelOptions]="{standalone: true}"/>
 
       </label>
     </p>
     <p>
       <label> Environment :
-        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.environment" />
+        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.environment" [ngModelOptions]="{standalone: true}"/>
 
       </label>
     </p>
     <p>
       <label> Group :
-        <input  style="border-color: #6AA84F" type="text" [(ngModel)]="animals.category" />
+        <input  style="border-color: #6AA84F" type="text" [(ngModel)]="animals.category" [ngModelOptions]="{standalone: true}"/>
 
       </label>
     </p>
 
       <label for="nbOrgans">Organs :</label>
-        <select id="nbOrgans" type="number" [(ngModel)]="nbOrgans">
+        <select id="nbOrgans" type="number" [(ngModel)]="nbOrgans" [ngModelOptions]="{standalone: true}">
           <option *ngFor="let nbOrg of ['Select...',1,2,3,4,5,6,7,8,9] index as i" [ngValue]="i">{{i}}</option>
         </select>
 
@@ -55,7 +66,9 @@
         </div>
 
   </div>
-        <button class="btn" class="btn btn-success" (click)="save()">Add animal</button>
+        <button class="btn" class="btn btn-success" type=button (click)="submitForm()">Add animal</button>
+
+      </form>
 
 
 
