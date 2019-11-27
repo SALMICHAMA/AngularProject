@@ -14,6 +14,7 @@ import { SingleOrganComponent } from './single-organ/single-organ.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UpdateanimalComponent } from './updateanimal/updateanimal.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     AddanimalComponent,
     SingleAnimalComponent,
     SingleOrganComponent,
-    UpdateanimalComponent
+    UpdateanimalComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
