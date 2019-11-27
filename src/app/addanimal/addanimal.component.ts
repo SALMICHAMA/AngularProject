@@ -14,11 +14,11 @@ export class AddanimalComponent implements OnInit {
 
   nbOrgans: number;
   animals: Animal = new Animal();
-  form: FormGroup;
+  uploadForm: FormGroup;
 
   private baseUrl = 'http://localhost:8080/api';
 
-  constructor(public fb: FormBuilder, private animalService: ListAnimalService, private router: Router, private httpClient: HttpClient) {
+  constructor(public formBuilder: FormBuilder, private animalService: ListAnimalService, private router: Router, private httpClient: HttpClient) {
     this.nbOrgans = 0;
   }
 
@@ -27,36 +27,27 @@ export class AddanimalComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // this.form = this.fb.group({
-    //   name: [''],
-    //   environment: [''],
-    //   category: [''],
-    //   avatar: []
-    // });
+    this.uploadForm = this.formBuilder.group({
+      animalPicture: ['']
+    });
   }
 
-  uploadFile(event) {
-    const headers = new Headers();
-    headers.set('Content-Type', 'multipart/form-data');
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({
-      avatar: file
-    });
-    this.form.get('avatar').updateValueAndValidity();
-
-    // formData.append('avatar', this.animals.imageUrl);
+  onFileSelected(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('animalPicture').setValue(file);
+    }
   }
 
 
   submitForm() {
-    // tslint:disable-next-line:prefer-const
     const formData = new FormData();
+
+    formData.append('file', this.uploadForm.get('animalPicture').value);
+
     formData.append('name', this.animals.name);
     formData.append('environment', this.animals.environment);
     formData.append('category', this.animals.category);
-    formData.append('avatar', this.form.get('avatar').value);
-
 
     this.httpClient.post(this.baseUrl + '/animal/add', formData).subscribe(
       (response) => console.log(response),
