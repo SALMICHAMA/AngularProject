@@ -6,6 +6,7 @@ import {ListAnimalService} from './service/animal.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'Webanimals';
   animals: any[];
@@ -16,6 +17,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // this.animals = this.listanimalService.animals;
   }
-
 
 }
