@@ -28,9 +28,7 @@ export class AnimalstodisplayComponent implements OnInit {
 
   delete(id: number): void {
     this.animalService.deleteAnimal(id).subscribe(_ => {
-      this.animals = this.animals.filter(item => {
-        item.id != id;
-      });
+      this.animals = this.animals.filter((animal: Animal) => animal.id !== id);
     }, error => {
       console.log(error);
     });
