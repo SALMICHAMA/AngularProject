@@ -46,8 +46,8 @@ export class OrganService {
 
   constructor(private http: HttpClient) { }
 
-  getOrgan(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getOrgan(id: number): Observable<Organ> {
+    return this.http.get<Organ>(`${this.baseUrl + '/organs/' + id}`);
   }
 
   createOrgan(organ: Organ): Observable<Organ> {
@@ -62,7 +62,7 @@ export class OrganService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getAnimalList(): Observable<Organ []> {
+  getOrganList(): Observable<Organ []> {
     return this.http.get<Organ []>(`${this.baseUrl + '/organs'}`);
   }
 

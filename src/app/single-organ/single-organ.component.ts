@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {OrganService} from '../service/organ.service';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {Animal} from '../animal';
 import {Organ} from '../organ';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-single-organ',
@@ -10,27 +11,26 @@ import {Organ} from '../organ';
   styleUrls: ['./single-organ.component.css']
 })
 export class SingleOrganComponent implements OnInit {
-
-  id: string;
   organ: Organ;
-
+  id: number;
   constructor(private organService: OrganService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.organ = new Organ();
-
-    this.id = this.route.snapshot.params.id;
-
-    this.organService.getOrgan(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.organ = data;
-      }, error => console.log(error));
+    // this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.reloadData();
   }
-
+  reloadData() {
+    this.organService.getOrgan(this.id)
+      .subscribe(
+        data => {
+          this.organ = data;
+          console.log(data);
+        },
+        e => console.log(e));
+  }
   list() {
     this.router.navigate(['/animals']);
   }
-
 
 }

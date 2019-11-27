@@ -65,6 +65,7 @@ export class ListAnimalService {
   }
 
 
+
   updateAnimal(id: string, value: Animal): Observable<Animal> {
     return this.http.put<Animal>(`${this.baseUrl}/${id}`, value);
   }
