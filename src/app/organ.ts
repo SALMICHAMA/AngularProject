@@ -1,5 +1,5 @@
 export class Organ {
-  id: string;
+  id: number;
   name: string;
   vital: boolean;
   description: string;

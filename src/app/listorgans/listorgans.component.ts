@@ -22,7 +22,7 @@ export class ListorgansComponent implements OnInit {
     this.reloadData();
   }
   reloadData() {
-    this.organservice.getAnimalList()
+    this.organservice.getOrganList()
       .subscribe(
         data => {
           this.organs = data;
