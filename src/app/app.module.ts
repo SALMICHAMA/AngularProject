@@ -13,6 +13,7 @@ import { SingleAnimalComponent } from './single-animal/single-animal.component';
 import { SingleOrganComponent } from './single-organ/single-organ.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UpdateanimalComponent } from './updateanimal/updateanimal.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 
 
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ListAnimalService, OrganService],
+  providers: [ListAnimalService, OrganService,  {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
