@@ -1,11 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ListAnimalService} from '../service/animal.service';
-import {Observable, of} from 'rxjs';
 import {Animal} from '../animal';
 import {Router} from '@angular/router';
-import {error} from 'util';
-import {catchError, tap} from 'rxjs/operators';
-import {HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-animalstodisplay',
@@ -16,6 +12,7 @@ export class AnimalstodisplayComponent implements OnInit {
 
   constructor(private animalService: ListAnimalService, private router: Router) {
   }
+
   animals: Animal[];
   columns: string[];
 
@@ -29,17 +26,21 @@ export class AnimalstodisplayComponent implements OnInit {
           e => console.log(e));
     }*/
 
-  delete(name: string): void {
-    this.animalService.deleteAnimal(name).subscribe(_ => {
-      this.animals = this.animals.filter(eachAnimal => eachAnimal.name !== name);
+  delete(id: number): void {
+    this.animalService.deleteAnimal(id).subscribe(_ => {
+      this.animals = this.animals.filter(item => {
+        item.id != id;
+      });
+    }, error => {
+      console.log(error);
     });
   }
 
-/*  delete(animal) {
-    this.animalService.deleteAnimal(animal.name).subscribe( Response => {
-      this.animalService.getAnimalList();
-    });
-  }*/
+  /*  delete(animal) {
+      this.animalService.deleteAnimal(animal.name).subscribe( Response => {
+        this.animalService.getAnimalList();
+      });
+    }*/
 
   ngOnInit() {
     // this.animals = this.animalService.animals;
@@ -52,7 +53,6 @@ export class AnimalstodisplayComponent implements OnInit {
       .subscribe(
         data => {
           this.animals = data;
-          console.log(data);
         },
         e => console.log(e));
   }
