@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'animal/add', component: AddanimalComponent },
   { path: 'animals', component: AnimalstodisplayComponent },
   { path: 'animals/:filter', component: AnimalstodisplayComponent },
-  { path: 'animals/:id', component: SingleAnimalComponent},
+  { path: 'animals/:id/:name', component: SingleAnimalComponent},
   { path: 'organs', component: ListorgansComponent },
   { path: 'animal/:name/organs', component: ListorgansComponent },
   { path: 'organs/:id/:name', component: SingleOrganComponent },

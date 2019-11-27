@@ -56,8 +56,8 @@ export class ListAnimalService {
   constructor(private http: HttpClient) {
   }
 
-  getAnimal(id: string): Observable<AnimalstodisplayComponent> {
-    return this.http.get<AnimalstodisplayComponent>(`${this.baseUrl + '/animals/'}+${id}`);
+  getAnimal(id: number): Observable<Animal> {
+    return this.http.get<Animal>(`${this.baseUrl + '/animals/animal/' + id}`);
   }
 
   createanimal(animal: Animal): Observable<Animal> {
@@ -75,7 +75,7 @@ export class ListAnimalService {
     }*/
 
   deleteAnimal(id: number): Observable<Animal> {
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
