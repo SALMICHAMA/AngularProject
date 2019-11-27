@@ -23,6 +23,10 @@ th {
   padding:5px;
   background-color:lightskyblue;
   width:25%;
+  text-transform: capitalize;
+}
+td{
+  text-transform: capitalize;
 }
 #animalsTable{
   margin-left: 50px;

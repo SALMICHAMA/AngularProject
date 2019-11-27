@@ -19,19 +19,19 @@
 
 
       <label> Name :
-        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.name"  [ngModelOptions]="{standalone: true}"/>
+        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.name"  [ngModelOptions]="{standalone: true}"  onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
 
       </label>
     </p>
     <p>
       <label> Environment :
-        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.environment" [ngModelOptions]="{standalone: true}"/>
+        <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.environment" [ngModelOptions]="{standalone: true}" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
 
       </label>
     </p>
     <p>
       <label> Group :
-        <input  style="border-color: #6AA84F" type="text" [(ngModel)]="animals.category" [ngModelOptions]="{standalone: true}"/>
+        <input  style="border-color: #6AA84F" type="text" [(ngModel)]="animals.category" [ngModelOptions]="{standalone: true}"  onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
 
       </label>
     </p>
@@ -47,7 +47,7 @@
         <h5 id="h5">Organ n°{{1+i}}</h5>
 
         <label> Name :
-        <input style="border-color: #6AA84F" type="text" />
+        <input style="border-color: #6AA84F" type="text" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);" />
 
 
           <label>Id: </label>
@@ -55,11 +55,11 @@
         </label><br>
 
         <label> Vitale :
-        <input style="border-color: #6AA84F" type="text"/>
+        <input style="border-color: #6AA84F" type="text" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
         </label>
 
         <label > Content :
-        <textarea type="text" id="content" ></textarea>
+        <textarea type="text" id="content" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);" ></textarea>
         </label>
 
 
