@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ListAnimalService} from '../service/animal.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Animal} from '../animal';
@@ -19,8 +19,10 @@ export class SingleAnimalComponent implements OnInit {
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
     this.reloadData();
   }
+
   reloadData() {
     this.animalService.getAnimal(this.id)
       .subscribe(
@@ -29,12 +31,6 @@ export class SingleAnimalComponent implements OnInit {
           console.log(data);
         },
         e => console.log(e));
-  }
-  animalDetails(id: string) {
-    this.router.navigate(['/animals/', id]);
-  }
-  list() {
-    this.router.navigate(['/animals']);
   }
 
 }

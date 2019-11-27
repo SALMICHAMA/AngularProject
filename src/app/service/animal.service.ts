@@ -2,7 +2,6 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
-import {AnimalstodisplayComponent} from '../animalstodisplay/animalstodisplay.component';
 
 
 @Injectable({
@@ -57,13 +56,12 @@ export class ListAnimalService {
   }
 
   getAnimal(id: number): Observable<Animal> {
-    return this.http.get<Animal>(`${this.baseUrl + '/animals/animal/' + id}`);
+    return this.http.get<Animal>(`${this.baseUrl + '/animals/' + id}`);
   }
 
   createanimal(animal: Animal): Observable<Animal> {
     return this.http.post<Animal>(`${this.baseUrl + '/animal/add'}`, animal).pipe();
   }
-
 
 
   updateAnimal(id: string, value: Animal): Observable<Animal> {
