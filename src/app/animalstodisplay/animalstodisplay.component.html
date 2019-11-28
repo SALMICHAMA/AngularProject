@@ -28,8 +28,10 @@
       <td>{{animal.name}}</td>
       <td>{{animal.environment}}</td>
       <td>{{animal.category}}</td>
-      <a routerLink="/oneanimal/{{animal.id}}/{{animal.name}}">Show more</a>
-      <button class="btn" class="btn btn-success" type="button " (click)="delete(animal.id)">Delete</button>
+      <td><a routerLink="/oneanimal/{{animal.id}}/{{animal.name}}">Show more</a></td>
+      <td>
+      <img id="rip" src="https://img.icons8.com/cute-clipart/64/000000/headstone.png" type="button " (click)="delete(animal.id)">
+      </td>
     </tr>
 
     </tbody>

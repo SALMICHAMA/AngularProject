@@ -16,7 +16,9 @@
 table{
   width: 50%;
   border-collapse: collapse;
+  text-align: center;
 }
+
 th {
   font-family:monospace;
   border:1px dotted #6495ed;
@@ -24,13 +26,24 @@ th {
   background-color:lightskyblue;
   width:25%;
   text-transform: capitalize;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 td{
   text-transform: capitalize;
+  text-align: justify-all;
+  vert-align: middle;
 }
+
 #animalsTable{
   margin-left: 50px;
 }
 #researchBar{
   margin-left: 50px;
+}
+#rip{
+  width: 50px;
+  height: 50px;
+vertical-align: center;
 }
