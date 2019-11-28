@@ -58,8 +58,13 @@ export class OrganService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteOrgan(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  deleteOrgan(id: number): Observable<Organ> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.delete<Organ>(`${this.baseUrl + '/organs/' + id}`, httpOptions);
   }
 
   getOrganList(): Observable<Organ []> {
