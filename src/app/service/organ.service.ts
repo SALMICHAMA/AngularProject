@@ -42,7 +42,9 @@ export class OrganService {
   getOrganList(): Observable<Organ []> {
     return this.http.get<Organ []>(`${this.baseUrl + '/organs'}`);
   }
-
+  filterOrgans(filter: string): Observable<Organ []> {
+    return this.http.get<Organ []>(`${this.baseUrl + '/organs/filter/' + filter}`);
+  }
 }
 
 

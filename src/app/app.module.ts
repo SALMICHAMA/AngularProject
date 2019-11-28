@@ -22,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'newanimal/add', component: AddanimalComponent },
   { path: 'listanimals', component: AnimalstodisplayComponent },
   { path: 'listanimals/:filter', component: AnimalstodisplayComponent },
+  { path: 'listorgans/:filter', component: ListorgansComponent },
   { path: 'single_animal/:id/:name', component: SingleAnimalComponent},
   { path: 'listorgans', component: ListorgansComponent },
   { path: 'single_animal/organs/:name/:id', component: ListorgansSpecificAnimalComponent },
