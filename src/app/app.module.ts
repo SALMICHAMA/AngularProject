@@ -15,16 +15,16 @@ import {HttpClientModule} from '@angular/common/http';
 import { UpdateanimalComponent } from './updateanimal/updateanimal.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { HeaderComponent } from './header/header.component';
-
+import { ListorgansSpecificAnimalComponent } from './listorgans-specific-animal/listorgans-specific-animal.component';
 
 
 const appRoutes: Routes = [
   { path: 'newanimal/add', component: AddanimalComponent },
   { path: 'listanimals', component: AnimalstodisplayComponent },
   { path: 'listanimals/:filter', component: AnimalstodisplayComponent },
-  { path: 'oneanimal/:id/:name', component: SingleAnimalComponent},
+  { path: 'single_animal/:id/:name', component: SingleAnimalComponent},
   { path: 'listorgans', component: ListorgansComponent },
-  { path: 'oneanimal/:name/organs', component: ListorgansComponent },
+  { path: 'single_animal/organs/:name/:id', component: ListorgansSpecificAnimalComponent },
   { path: 'oneorgan/:id/:name', component: SingleOrganComponent },
   { path: '', component: WelcomeComponent }
   ];
@@ -40,7 +40,8 @@ const appRoutes: Routes = [
     AddanimalComponent,
     SingleAnimalComponent,
     SingleOrganComponent,
-    UpdateanimalComponent
+    UpdateanimalComponent,
+    ListorgansSpecificAnimalComponent,
   ],
   imports: [
     BrowserModule,
