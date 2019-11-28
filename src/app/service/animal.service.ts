@@ -43,7 +43,9 @@ export class ListAnimalService {
     return this.http.delete<Animal>(this.baseUrl + '/animals/' + id, httpOptions);
   }
 
-
+  filterAnimals(filter: string): Observable<Animal []> {
+    return this.http.get<Animal []>(`${this.baseUrl + '/animals/filter/' + filter}`);
+  }
   getAnimalList(): Observable<Animal []> {
     return this.http.get<Animal []>(`${this.baseUrl + '/animals'}`);
   }

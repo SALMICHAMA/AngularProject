@@ -7,5 +7,5 @@ export class Animal {
   category: string;
   imageUrl: string;
   organs: Organ[];
-
+  filter: string;
 }
