@@ -3,6 +3,7 @@ import {ListAnimalService} from '../service/animal.service';
 import {OrganService} from '../service/organ.service';
 import {Router} from '@angular/router';
 import {Organ} from '../organ';
+import {Animal} from '../animal';
 
 @Component({
   selector: 'app-listorgans',
@@ -30,14 +31,12 @@ export class ListorgansComponent implements OnInit {
         },
         e => console.log(e));
   }
-  deleteOrgan(id: string) {
-    this.organservice.deleteOrgan(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        e => console.log(e));
+  delete(id: number): void {
+    this.organservice.deleteOrgan(id).subscribe(_ => {
+      this.organs = this.organs.filter((organ: Organ) => organ.id !== id);
+    }, error => {
+      console.log(error);
+    });
   }
 
   OrganDetails(id: string) {

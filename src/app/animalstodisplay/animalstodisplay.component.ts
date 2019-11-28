@@ -14,35 +14,8 @@ export class AnimalstodisplayComponent implements OnInit {
   }
 
   animals: Animal[];
-  columns: string[];
-
-  /*  deleteAnimal(name: string) {
-      this.animalService.deleteAnimal(name)
-        .subscribe(
-          data => {
-            console.log(data);
-            this.reloadData();
-          },
-          e => console.log(e));
-    }*/
-
-  delete(id: number): void {
-    this.animalService.deleteAnimal(id).subscribe(_ => {
-      this.animals = this.animals.filter((animal: Animal) => animal.id !== id);
-    }, error => {
-      console.log(error);
-    });
-  }
-
-  /*  delete(animal) {
-      this.animalService.deleteAnimal(animal.name).subscribe( Response => {
-        this.animalService.getAnimalList();
-      });
-    }*/
 
   ngOnInit() {
-    // this.animals = this.animalService.animals;
-    // this.columns = this.animalService.getColumns();
     this.reloadData();
   }
 
@@ -54,9 +27,11 @@ export class AnimalstodisplayComponent implements OnInit {
         },
         e => console.log(e));
   }
-
-
-  animalDetails(id: string) {
-    this.router.navigate(['/animals/', id]);
+  delete(id: number): void {
+    this.animalService.deleteAnimal(id).subscribe(_ => {
+      this.animals = this.animals.filter((animal: Animal) => animal.id !== id);
+    }, error => {
+      console.log(error);
+    });
   }
 }

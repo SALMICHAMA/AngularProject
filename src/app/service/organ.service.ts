@@ -8,34 +8,6 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class OrganService {
-  // organs = [
-  //   {
-  //     id: 1,
-  //     name: 'heart',
-  //     vital: 'yes',
-  //     description: 'heart beat',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'lung',
-  //     vital: 'yes',
-  //     description: 'breathe',
-  //   }
-  //   ];
-  //
-  // getColumns(): string[] {
-  //   return ['name', 'vital', 'description']}
-  //
-  // getOrganbyId(id: number) {
-  //   const organs = this.organs.find(
-  //     (s) => {
-  //       return s.id === id;
-  //     }
-  //   );
-  //   return organs
-  //     ;
-  // }
-
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -58,8 +30,13 @@ export class OrganService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteOrgan(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  deleteOrgan(id: number): Observable<Organ> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.delete<Organ>(`${this.baseUrl + '/organs/' + id}`, httpOptions);
   }
 
   getOrganList(): Observable<Organ []> {
