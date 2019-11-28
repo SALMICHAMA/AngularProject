@@ -3,11 +3,7 @@
   text-align: center;
   font-size: 60px;
 }
-p{
-  text-align: center;
-  color: forestgreen;
-  font-size: 60px;
-}
+
 #loupe{
   background-image: url("https://img.icons8.com/windows/32/000000/google-web-search.png");
   background-repeat: no-repeat;width: 30px;height: 30px;padding: 0;
@@ -16,10 +12,13 @@ p{
 #image{
   position: absolute; top:2%; right:1%;
 }
+
 table{
   width: 50%;
   border-collapse: collapse;
+  text-align: center;
 }
+
 th {
   font-family:monospace;
   border:1px dotted #6495ed;
@@ -27,7 +26,14 @@ th {
   background-color:lightskyblue;
   width:25%;
   text-transform: capitalize;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }
+
 td{
   text-transform: capitalize;
+  text-align: justify-all;
+  vert-align: middle;
 }
+
