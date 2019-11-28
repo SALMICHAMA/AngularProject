@@ -5,9 +5,11 @@
 
 <div style="margin-left: 50px">
   <label for="site-search">Search an organ:</label>
-  <input type="search" id="site-search" name="q"
-         aria-label="Search through site content" >
-  <button id="loupe" type="submit" class="icone" ></button>
+  <input type="search" id="site-search" name="filter"
+         [(ngModel)]="filter"
+         [ngModelOptions]="{standalone: true}"
+         onchange="this.value = this.value.charAt(0).toLowerCase();" aria-label="Search through site content">
+  <button routerLink="/listorgans/{{filter}}" id="loupe" type="button" class="icone" (click)="filterOrgans(filter)"></button>
 
   <ul class="list-group ">
 

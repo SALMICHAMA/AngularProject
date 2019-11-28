@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ListAnimalService} from '../service/animal.service';
 import {OrganService} from '../service/organ.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Organ} from '../organ';
-import {Animal} from '../animal';
+
 
 @Component({
   selector: 'app-listorgans',
@@ -13,23 +12,30 @@ import {Animal} from '../animal';
 export class ListorgansComponent implements OnInit {
 
   organs: Organ[];
-  columns: string[];
+  filter: string;
 
-  constructor(private organservice: OrganService ,  private router: Router) { }
+  constructor(private organservice: OrganService ,  private router: Router , private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.organs = this.organservice.organs;
-    // this.columns = this.organservice.getColumns();
+    this.filter = this.route.snapshot.paramMap.get('filter');
     this.reloadData();
   }
   reloadData() {
-    this.organservice.getOrganList()
-      .subscribe(
-        data => {
-          this.organs = data;
-          console.log(data);
-        },
-        e => console.log(e));
+    if (this.filter == null) {
+      this.organservice.getOrganList()
+        .subscribe(
+          data => {
+            this.organs = data;
+          },
+          e => console.log(e));
+    } else {
+      this.organservice.filterOrgans(this.filter)
+        .subscribe(
+          data => {
+            this.organs = data;
+          },
+          e => console.log(e));
+    }
   }
   delete(id: number): void {
     this.organservice.deleteOrgan(id).subscribe(_ => {
@@ -39,7 +45,4 @@ export class ListorgansComponent implements OnInit {
     });
   }
 
-  OrganDetails(id: string) {
-    this.router.navigate(['/animals', id]);
-  }
 }
