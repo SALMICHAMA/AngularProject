@@ -16,3 +16,18 @@ p{
 #image{
   position: absolute; top:2%; right:1%;
 }
+table{
+  width: 50%;
+  border-collapse: collapse;
+}
+th {
+  font-family:monospace;
+  border:1px dotted #6495ed;
+  padding:5px;
+  background-color:lightskyblue;
+  width:25%;
+  text-transform: capitalize;
+}
+td{
+  text-transform: capitalize;
+}
