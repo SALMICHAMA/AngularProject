@@ -48,7 +48,7 @@ export class AddanimalComponent implements OnInit {
     formData.append('name', this.animals.name);
     formData.append('environment', this.animals.environment);
     formData.append('category', this.animals.category);
-
+    //formData.append('organs', this.animals.organs);
     this.httpClient.post(this.baseUrl + '/animal/add', formData).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
