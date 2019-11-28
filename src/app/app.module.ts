@@ -33,14 +33,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     WelcomeComponent,
     ListorgansComponent,
     AnimalstodisplayComponent,
     AddanimalComponent,
     SingleAnimalComponent,
     SingleOrganComponent,
-    UpdateanimalComponent,
-    HeaderComponent,
+    UpdateanimalComponent
   ],
   imports: [
     BrowserModule,
