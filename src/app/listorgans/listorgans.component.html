@@ -30,6 +30,9 @@
     <td>{{organ.vital}}</td>
     <td><a routerLink = "/oneorgan/{{organ.id}}/{{organ.name}}" >
     <img src="https://img.icons8.com/color/48/000000/search-property.png"></a></td>
+    <td>
+      <img id="rip" src="https://img.icons8.com/cute-clipart/64/000000/headstone.png" type="button" (click)="delete(organ.id)">
+    </td>
   </tr>
 
   </tbody>
