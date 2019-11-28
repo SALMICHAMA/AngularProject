@@ -8,6 +8,31 @@ p{
   color: forestgreen;
   font-size: 60px;
 }
+
+table{
+  width: 50%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  font-family:monospace;
+  border:1px dotted #6495ed;
+  padding:5px;
+  background-color:lightskyblue;
+  width:25%;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+td{
+  text-transform: capitalize;
+  text-align: justify-all;
+  vert-align: middle;
+}
+
 #loupe{
   background-image: url("https://img.icons8.com/windows/32/000000/google-web-search.png");
   background-repeat: no-repeat;width: 30px;height: 30px;padding: 0;
