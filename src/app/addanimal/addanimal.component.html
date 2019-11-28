@@ -1,10 +1,8 @@
-
-<div>
+<div style="display: block">
   <app-header></app-header>
+  <p class="addanimal">Add animal</p>
 </div>
-<div>
-  <h2 id="title">Add animal</h2>
-</div>
+
 <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
   <div>
     <form #ngForm="ngForm">

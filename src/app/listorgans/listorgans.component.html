@@ -1,38 +1,36 @@
-<div>
+<div style="display: block">
   <app-header></app-header>
+  <p class="listorgans">List organs</p>
 </div>
-<br>
-<p>List organs</p>
 
 <div style="margin-left: 50px">
-<label for="site-search">Search an organ:</label>
-<input type="search" id="site-search" name="q"
-       aria-label="Search through site content" >
-<button id="loupe" type="submit" class="icone" ></button>
+  <label for="site-search">Search an organ:</label>
+  <input type="search" id="site-search" name="q"
+         aria-label="Search through site content" >
+  <button id="loupe" type="submit" class="icone" ></button>
 
-  <div style="height: 20px"></div>
+  <ul class="list-group ">
 
-<table class="table table-hover table-dark">
-  <thead>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Description</th>
-    <th scope="col">Vital</th>
+  </ul>
 
-  </tr>
-  </thead>
-  <tbody>
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Vital</th>
+      <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+
   <tr *ngFor="let organ of organs; let i = index">
     <td>{{organ.name}}</td>
     <td>{{organ.description}}</td>
     <td>{{organ.vital}}</td>
-    <a routerLink = "/oneorgan/{{organ.id}}/{{organ.name}}" >More details</a>
-    <td>
-      <img id="rip" src="https://img.icons8.com/cute-clipart/64/000000/headstone.png" type="button " (click)="delete(organ.id)">
-    </td>
+    <td><a routerLink = "/oneorgan/{{organ.id}}/{{organ.name}}" >
+    <img src="https://img.icons8.com/color/48/000000/search-property.png"></a></td>
   </tr>
-
-
 
   </tbody>
 </table>
