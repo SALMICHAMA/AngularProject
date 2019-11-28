@@ -1,14 +1,12 @@
 #image{
   position: absolute; top:2%; right:1%;
 }
-p{
-  font-size: 25px;
-  margin-left: 50px;
+
+h2{
+  margin-top: 50px;
+  font-style: italic;
 }
-a{
-  margin-left: 10px;
-}
-h1{
-  font-size: 40px;
-  text-align: center;
+
+section{
+  font-size: medium;
 }

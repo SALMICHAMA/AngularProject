@@ -1,11 +1,13 @@
-<div>
+<div style="display: block">
   <app-header></app-header>
 </div>
 
-<h1> {{ organ.name }}</h1>
-<tbody>
-<p>Description : {{ organ.description }}</p>
-<p>Vital : {{ organ.vital }}</p>
-<a routerLink="/listorgans">Retour à la liste</a>
-</tbody>
+  <h2>{{organ.name.toUpperCase()}} :</h2>
+
+  <section>Description : {{ organ.description }}</section>
+  <section>Vital : {{ organ.vital }}</section><br>
+
+  <a routerLink="/listorgans">Retour à la liste</a>
+
+
 

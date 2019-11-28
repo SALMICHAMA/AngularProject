@@ -1,11 +1,10 @@
-
-<div>
+<div style="display: block">
   <app-header></app-header>
 </div>
 
-  <h2>{{ animal.name}}</h2>
-  <p>environment : {{ animal.environment }}</p>
-  <p>groups : {{ animal.category }}</p>
+  <h2>{{animal.name.toUpperCase()}} :</h2>
+  <section>Environment : {{ animal.environment }}</section>
+  <section>Groups : {{ animal.category }}</section>
   <div>
     <img src="{{animal.imageUrl}}">
   </div>
