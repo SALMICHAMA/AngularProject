@@ -2,6 +2,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Animal} from '../animal';
 import {Injectable} from '@angular/core';
+import {Organ} from '../organ';
 
 
 @Injectable({
@@ -68,27 +69,21 @@ export class ListAnimalService {
     return this.http.put<Animal>(`${this.baseUrl}/${id}`, value);
   }
 
-  /*  deleteAnimal(name: string): Observable<any> {
-      return this.http.delete(`${this.baseUrl + '/animals/' + name} `, { responseType: 'text' });
-    }*/
-
   deleteAnimal(id: number): Observable<Animal> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    ;
-
     return this.http.delete<Animal>(this.baseUrl + '/animals/' + id, httpOptions);
-    // .pipe(tap(_ => console.log('Deleted animal with name = ${name}')),
-    // catchError(error => of(null))
-    // );
   }
 
 
   getAnimalList(): Observable<Animal []> {
     return this.http.get<Animal []>(`${this.baseUrl + '/animals'}`);
+  }
+  getAnimalOrgans(id: number): Observable<Organ []> {
+    return this.http.get<Organ []>(`${this.baseUrl + '/animals/' + id + '/organs'}`);
   }
 
 }
