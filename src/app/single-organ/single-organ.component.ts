@@ -40,27 +40,13 @@ export class SingleOrganComponent implements OnInit {
         e => console.log(e));
   }
 
-  updateData() {
-    this.organService.getOrgan(this.id)
-      .subscribe(
-        data => {
-          this.organ = data;
-          this.description = this.newDescription;
-          this.vital = this.organ.vital;
-          console.log(data);
-        },
-        e => console.log(e));
-  }
-
-
   updateOrganDescription() {
     const formData = new FormData();
     formData.append('newDescription', this.newDescription);
 
     this.organService.updateOrgan(this.id, this.newDescription).subscribe(
       data => {
-        //todo : here, redirect to the all organs
-
+        this.ngOnInit();
       },
       e => console.log(e));
   }
