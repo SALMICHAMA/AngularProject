@@ -26,8 +26,13 @@ export class OrganService {
     return this.http.post <Organ> (`${this.baseUrl + '/organ/add'}`, organ, this.httpOptions).pipe();
   }
 
-  updateOrgan(id: string, value: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateOrgan(id: number, newDescription: string): Observable<Organ> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json'
+      })
+    }
+    return this.http.patch<Organ>(`${this.baseUrl + '/organs/update/' + id}`, newDescription, httpOptions);
   }
 
   deleteOrgan(id: number): Observable<Organ> {

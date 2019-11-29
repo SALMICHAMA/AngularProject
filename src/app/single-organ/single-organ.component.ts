@@ -1,9 +1,11 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {OrganService} from '../service/organ.service';
 import {ActivatedRoute, Route, Router} from '@angular/router';
-import {Animal} from '../animal';
 import {Organ} from '../organ';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
+import {Animal} from '../animal';
+
 
 @Component({
   selector: 'app-single-organ',
@@ -12,12 +14,17 @@ import {Observable} from 'rxjs';
 })
 export class SingleOrganComponent implements OnInit {
   organ: Organ;
+  name: string;
   id: number;
-  constructor(private organService: OrganService, private route: ActivatedRoute, private router: Router) { }
+  description: string;
+  vital: boolean;
+  newDescription: string;
+  constructor(private formBuilder: FormBuilder , private organService: OrganService,
+              private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    // this.id = +this.route.snapshot.paramMap.get('id');
     this.id = +this.route.snapshot.paramMap.get('id');
+    this.name = this.route.snapshot.paramMap.get('name');
     this.reloadData();
   }
   reloadData() {
@@ -25,12 +32,38 @@ export class SingleOrganComponent implements OnInit {
       .subscribe(
         data => {
           this.organ = data;
+          this.description = this.organ.description;
+          this.vital = this.organ.vital;
+          console.log(data);
+        },
+        e => console.log(e));
+  }
+  updateData() {
+    this.organService.getOrgan(this.id)
+      .subscribe(
+        data => {
+          this.organ = data;
+          this.description = this.newDescription;
+          this.vital = this.organ.vital;
           console.log(data);
         },
         e => console.log(e));
   }
   list() {
-    this.router.navigate(['/animals']);
+    this.router.navigate(['/listorgans']);
+  }
+  updateOrganDescription() {
+      const formData = new FormData();
+      formData.append('newDescription', this.newDescription);
+      console.log(this.newDescription);
+      this.organService.updateOrgan(this.id, this.newDescription).subscribe(
+        data => {
+          this.organ = data;
+          console.log(data);
+        },
+        e => console.log(e));
+      console.log(this.organ);
+      this.updateData();
   }
 
 }

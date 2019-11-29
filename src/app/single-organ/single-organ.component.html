@@ -2,13 +2,27 @@
   <app-header></app-header>
 </div>
 
-  <h2>{{organ.name.toUpperCase()}} </h2>
+  <h2>{{name.toUpperCase()}} </h2>
 
-  <section>Description : {{ organ.description }}</section>
-  <section>Vital : {{ organ.vital }}</section><br>
+  <section>Description : {{ description }}</section>
+  <section>Vital : {{ vital }}</section><br>
 
   <p style="text-align: center">
   <a routerLink="/listorgans">Retour à la liste</a>
   </p>
+
+    <form #ngForm="ngForm">
+        <p>
+          <label> New Description :
+            <input style="border-color: #6AA84F" type="text" [(ngModel)]="newDescription" name="newDescription"
+                   [ngModelOptions]="{standalone: true}"
+                   onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
+          </label>
+        </p>
+    </form>
+<br>
+<button routerLink="/oneorgan/{{id}}/{{name}}" class="btn" class="btn btn-success" type="submit" (click)="updateOrganDescription()" style="margin-left: 245px">Update Description</button>
+
+
 
 

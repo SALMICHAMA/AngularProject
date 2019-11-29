@@ -18,7 +18,8 @@ export class AddanimalComponent implements OnInit {
 
   private baseUrl = 'http://localhost:8080/api';
 
-  constructor(public formBuilder: FormBuilder, private animalService: ListAnimalService, private router: Router, private httpClient: HttpClient) {
+  constructor(public formBuilder: FormBuilder, private animalService: ListAnimalService,
+              private router: Router, private httpClient: HttpClient) {
     this.nbOrgans = 0;
   }
 
