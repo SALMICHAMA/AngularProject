@@ -12,5 +12,10 @@ section{
   font-size: medium;
   text-align: center;
 }
+.inputFormUpdate{
+  display: flex;
+  justify-content: center;
+}
+
 
 

@@ -7,21 +7,28 @@
   <section>Description : {{ description }}</section>
   <section>Vital : {{ vital }}</section><br>
 
-  <p style="text-align: center">
+  <p style="text-align: center ; margin-bottom: 50px">
   <a routerLink="/listorgans">Retour à la liste</a>
   </p>
 
-    <form #ngForm="ngForm">
-        <p>
-          <label> New Description :
-            <input style="border-color: #6AA84F" type="text" [(ngModel)]="newDescription" name="newDescription"
-                   [ngModelOptions]="{standalone: true}"
-                   onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
-          </label>
-        </p>
-    </form>
-<br>
-<button routerLink="/oneorgan/{{id}}/{{name}}" class="btn" class="btn btn-success" type="submit" (click)="updateOrganDescription()" style="margin-left: 245px">Update Description</button>
+  <div class="inputFormUpdate">
+    <label> New Description :</label>
+  </div>
+  <form #ngForm="ngForm" class="inputFormUpdate">
+    <div>
+      <label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" type="text" [(ngModel)]="newDescription" name="newDescription"
+                  [ngModelOptions]="{standalone: true}"
+                  onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"></textarea>
+      </label>
+    </div>
+  </form>
+  <div class="inputFormUpdate">
+    <button routerLink="/oneorgan/{{id}}/{{name}}"  class="btn btn-success" type="submit" (click)="updateOrganDescription()" style="margin-left: 245px">Update Description</button>
+  </div>
+
+
+
 
 
 
