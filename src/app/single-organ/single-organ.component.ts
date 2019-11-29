@@ -1,10 +1,8 @@
-import {Component, Injector, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OrganService} from '../service/organ.service';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Organ} from '../organ';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {Animal} from '../animal';
+import {FormBuilder} from '@angular/forms';
 
 
 @Component({
@@ -19,14 +17,17 @@ export class SingleOrganComponent implements OnInit {
   description: string;
   vital: boolean;
   newDescription: string;
-  constructor(private formBuilder: FormBuilder , private organService: OrganService,
-              private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private formBuilder: FormBuilder, private organService: OrganService,
+              private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.name = this.route.snapshot.paramMap.get('name');
     this.reloadData();
   }
+
   reloadData() {
     this.organService.getOrgan(this.id)
       .subscribe(
@@ -38,6 +39,7 @@ export class SingleOrganComponent implements OnInit {
         },
         e => console.log(e));
   }
+
   updateData() {
     this.organService.getOrgan(this.id)
       .subscribe(
@@ -49,21 +51,18 @@ export class SingleOrganComponent implements OnInit {
         },
         e => console.log(e));
   }
-  list() {
-    this.router.navigate(['/listorgans']);
-  }
+
+
   updateOrganDescription() {
-      const formData = new FormData();
-      formData.append('newDescription', this.newDescription);
-      console.log(this.newDescription);
-      this.organService.updateOrgan(this.id, this.newDescription).subscribe(
-        data => {
-          this.organ = data;
-          console.log(data);
-        },
-        e => console.log(e));
-      console.log(this.organ);
-      this.updateData();
+    const formData = new FormData();
+    formData.append('newDescription', this.newDescription);
+
+    this.organService.updateOrgan(this.id, this.newDescription).subscribe(
+      data => {
+        //todo : here, redirect to the all organs
+
+      },
+      e => console.log(e));
   }
 
 }
