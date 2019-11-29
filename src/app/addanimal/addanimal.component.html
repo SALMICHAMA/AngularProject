@@ -3,39 +3,36 @@
   <p class="addanimal">Add animal</p>
 </div>
 
-<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="uploadForm" (ngSubmit)="submitForm()">
   <div>
     <form #ngForm="ngForm">
       <div>
 
-
         <div style="margin-left: 65px">
           <input type="file" name="animalPicture" (change)="onFileSelected($event)"/>
         </div><br>
-
 
         <p>
           <label> Name :
             <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.name"
                    [ngModelOptions]="{standalone: true}"
                    onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
-
           </label>
         </p>
+
         <p>
           <label> Environment :
             <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.environment"
                    [ngModelOptions]="{standalone: true}"
                    onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
-
           </label>
         </p>
+
         <p>
           <label> Group :
             <input style="border-color: #6AA84F" type="text" [(ngModel)]="animals.category"
                    [ngModelOptions]="{standalone: true}"
                    onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
-
           </label>
         </p>
 
@@ -44,37 +41,33 @@
           <option *ngFor="let nbOrg of ['Select...',1,2,3,4,5,6,7,8,9] index as i" [ngValue]="i">{{i}}</option>
         </select>
 
+
         <div *ngFor="let item of getNbOrgans() index as i">
           <p id="trait">____________________________________________________________________</p>
 
           <h5 id="h5">Organ n°{{1 + i}}</h5>
 
-          <label> Name :
-            <input style="border-color: #6AA84F" type="text"
-                   onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
+            <label> Name :
+              <input style="border-color: #6AA84F" type="text" [(ngModel)]="organName" name="organName"
+                     onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
 
+            </label><br>
 
-            <label>Id: </label>
+            <label> Vitale :
+              <input style="border-color: #6AA84F" type="text" [(ngModel)]="organVital" name="organVital"
+                     onchange="this.value = this.value.charAt(0).toLowerCase();"/>
+            </label>
 
-          </label><br>
-
-          <label> Vitale :
-            <input style="border-color: #6AA84F" type="text"
-                   onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"/>
-          </label>
-
-          <label> Content :
-            <textarea type="text" id="content" maxlength="140"
-                      onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"></textarea>
-          </label>
-
-
+            <label> Content :
+              <textarea type="text" id="content" maxlength="140" [(ngModel)]="organDescription" name="organDescription"
+                        onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);"></textarea>
+            </label>
         </div>
 
       </div>
       <br>
-      <button class="btn" class="btn btn-success" type=button (click)="submitForm()" style="margin-left: 245px">Add animal</button>
-    
+      <button name="formularButton" class="btn" class="btn btn-success" type="button" (click)="submitForm()" style="margin-left: 245px">Add animal</button>
+
 
     </form>
 

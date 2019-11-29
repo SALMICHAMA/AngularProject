@@ -23,7 +23,7 @@ export class OrganService {
   }
 
   createOrgan(organ: Organ): Observable<Organ> {
-    return this.http.post <Organ> (`${this.baseUrl + '/organ/add'}`, organ, this.httpOptions).pipe();
+    return this.http.post <Organ> (`${this.baseUrl + '/organs/add'}`, organ , this.httpOptions).pipe();
   }
 
   updateOrgan(id: string, value: any): Observable<any> {
