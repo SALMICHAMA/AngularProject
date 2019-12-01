@@ -14,7 +14,12 @@ export class ListAnimalService {
       'Content-Type': 'multipart/form-data'
     })
   };
-
+  httpOptionsJson = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    })
+  };
   private baseUrl = 'http://localhost:8080/api';
 
 
@@ -30,8 +35,8 @@ export class ListAnimalService {
   }
 
 
-  updateAnimal(id: string, value: Animal): Observable<Animal> {
-    return this.http.put<Animal>(`${this.baseUrl}/${id}`, value);
+  updateAnimalOrgans(id: number, organ: Organ): Observable<Animal> {
+    return this.http.patch<Animal>(`${this.baseUrl + '/animals/' + id + '/moreorgan'}`, organ , this.httpOptionsJson);
   }
 
   deleteAnimal(id: number): Observable<Animal> {

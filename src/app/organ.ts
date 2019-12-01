@@ -3,8 +3,7 @@ export class Organ {
   name: string;
   vital: boolean;
   description: string;
-  constructor(private createid: number, private createname: string, private createdescription: string, private createvital: boolean) {
-    this.id = createid;
+  constructor( private createname: string, private createdescription: string, private createvital: boolean) {
     this.name = createname;
     this.description = createdescription;
     this.vital = createvital;
